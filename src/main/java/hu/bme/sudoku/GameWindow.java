@@ -18,6 +18,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 
+import hu.bme.sudoku.FajlKezelo.BetoltesEredmeny;
+
 public class GameWindow extends JFrame {
     private CellRenderer renderer;
     private SudokuTabla tabla;
@@ -41,7 +43,7 @@ public class GameWindow extends JFrame {
         table.setDefaultEditor(Object.class, new SudokuCellEditor());
 
         renderer = new CellRenderer(tableModel.getFixCellak());
-table.setDefaultRenderer(Object.class, renderer);
+        table.setDefaultRenderer(Object.class, renderer);
 
         table.setRowHeight(50);
         table.setFont(new Font("SansSerif", Font.BOLD, 24));
@@ -128,14 +130,18 @@ table.setDefaultRenderer(Object.class, renderer);
         tableModel.fireTableDataChanged();
 
         renderer.setHibak(null);
-table.repaint();
+        table.repaint();
     }
 
     private void jatekMentes() {
         JFileChooser fc = new JFileChooser();
         if (fc.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
             try {
-                fajlkezelo.mentes(fc.getSelectedFile().getAbsolutePath(), tabla.getTabla());
+                fajlkezelo.mentes(
+                    fc.getSelectedFile().getAbsolutePath(),
+                    tabla.getTabla(),
+                    tableModel.getFixCellak()
+                );
                 JOptionPane.showMessageDialog(this, "Sikeres mentés!");
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(this, "Hiba történt a mentéskor.");
@@ -144,21 +150,33 @@ table.repaint();
     }
 
     private void jatekBetoltes() {
-        JFileChooser fc = new JFileChooser();
-        if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            try {
-                int[][] t = fajlkezelo.betoltes(fc.getSelectedFile().getAbsolutePath());
-                tabla = new SudokuTabla(t);
-                tableModel.setTabla(tabla);
-                tableModel.fireTableDataChanged();
-                JOptionPane.showMessageDialog(this, "Betöltés kész!");
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(this, "Hiba történt a betöltéskor.");
-            }
+    JFileChooser fc = new JFileChooser();
+    if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+        try {
+
+            BetoltesEredmeny eredm = fajlkezelo.betoltes(
+                fc.getSelectedFile().getAbsolutePath()
+            );
+
+            tabla = new SudokuTabla(eredm.tabla());
+            tableModel.setTabla(tabla);
+
+            tableModel.setFixCellak(eredm.fix());
+            renderer.setFixCellak(eredm.fix());
+
+            renderer.setHibak(null);
+
+            tableModel.fireTableDataChanged();
+            table.repaint();
+
+            JOptionPane.showMessageDialog(this, "Betöltés kész!");
+
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Hiba történt a betöltéskor.");
         }
-        renderer.setHibak(null);
-table.repaint();
     }
+}
+    
 
     private void jatekEllenorzes() {
     int[][] t = tabla.getTabla();

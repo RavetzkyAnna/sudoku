@@ -11,12 +11,16 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 public class CellRenderer extends DefaultTableCellRenderer {
     
-    private final boolean[][] fix;
+    private boolean[][] fix;
     private Set<Point> hibak; // hibás cellák
     
     public CellRenderer(boolean[][] fixCellak) {
         this.fix = fixCellak;
         setHorizontalAlignment(CENTER);
+    }
+
+    public void setFixCellak(boolean[][] fix) {
+        this.fix = fix;
     }
     
     public void setHibak(Set<Point> hibak) {

@@ -87,4 +87,9 @@ public class SudokuTableModel extends AbstractTableModel {
     public boolean[][] getFixCellak() {
         return fixCellak;
     }
+
+    public void setFixCellak(boolean[][] fix) {
+        this.fixCellak = fix;
+    }
+    
 }
