@@ -9,11 +9,6 @@ import com.google.gson.GsonBuilder;
 
 public class FajlKezelo {
 
-    // belső osztály, amit JSON-ben tárolunk
-    private static class JatekAllapot {
-        int[][] tabla;
-    }
-
     public record BetoltesEredmeny(int[][] tabla, boolean[][] fix) {}
 
     private Gson gson = new GsonBuilder()
