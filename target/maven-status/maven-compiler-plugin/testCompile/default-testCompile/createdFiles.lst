@@ -1,3 +1,5 @@
 hu/bme/sudoku/SudokuEllenorzoTest.class
+hu/bme/sudoku/FajlKezeloExtrasTest.class
+hu/bme/sudoku/SudokuEllenorzoExtrasTest.class
 hu/bme/sudoku/FajlKezeloTest.class
 hu/bme/sudoku/SudokuTablaTest.class
