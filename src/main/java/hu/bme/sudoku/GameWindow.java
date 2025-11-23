@@ -58,7 +58,7 @@ public class GameWindow extends JFrame {
     private JMenuBar createMenu() {
         JMenuBar menuBar = new JMenuBar();
 
-        JMenu fileMenu = new JMenu("Fájl");
+        JMenu fileMenu = new JMenu("Menü");
 
         JMenuItem ujJatek = new JMenuItem(new AbstractAction("Új játék") {
             @Override
