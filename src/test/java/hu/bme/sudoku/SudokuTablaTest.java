@@ -3,6 +3,8 @@ package hu.bme.sudoku;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
+import hu.bme.sudoku.logic.SudokuTabla;
+
 public class SudokuTablaTest {
 
     @Test

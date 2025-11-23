@@ -1,4 +1,4 @@
-package hu.bme.sudoku;
+package hu.bme.sudoku.gui;
 
 import java.awt.Color;
 import java.awt.Component;

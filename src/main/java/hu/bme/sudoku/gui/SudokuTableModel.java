@@ -1,6 +1,8 @@
-package hu.bme.sudoku;
+package hu.bme.sudoku.gui;
 
 import javax.swing.table.AbstractTableModel;
+
+import hu.bme.sudoku.logic.SudokuTabla;
 
 public class SudokuTableModel extends AbstractTableModel {
 

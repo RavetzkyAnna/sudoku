@@ -1,4 +1,4 @@
-package hu.bme.sudoku;
+package hu.bme.sudoku.logic;
 
 import java.awt.Point;
 import java.util.HashSet;

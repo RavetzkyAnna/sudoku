@@ -1,4 +1,4 @@
-package hu.bme.sudoku;
+package hu.bme.sudoku.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -18,7 +18,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 
-import hu.bme.sudoku.FajlKezelo.BetoltesEredmeny;
+import hu.bme.sudoku.io.FajlKezelo;
+import hu.bme.sudoku.io.FajlKezelo.BetoltesEredmeny;
+import hu.bme.sudoku.logic.SudokuEllenorzo;
+import hu.bme.sudoku.logic.SudokuGenerator;
+import hu.bme.sudoku.logic.SudokuTabla;
 
 public class GameWindow extends JFrame {
     private CellRenderer renderer;

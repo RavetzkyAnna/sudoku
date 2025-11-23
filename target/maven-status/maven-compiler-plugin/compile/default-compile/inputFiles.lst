@@ -1,8 +1,8 @@
-/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/SudokuGenerator.java
-/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/FajlKezelo.java
-/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/SudokuTabla.java
-/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/CellRenderer.java
-/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/SudokuTableModel.java
-/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/SudokuEllenorzo.java
-/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/SudokuCellEditor.java
-/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/GameWindow.java
+/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/gui/GameWindow.java
+/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/io/FajlKezelo.java
+/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/gui/SudokuCellEditor.java
+/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/logic/SudokuTabla.java
+/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/gui/CellRenderer.java
+/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/logic/SudokuGenerator.java
+/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/gui/SudokuTableModel.java
+/Users/ravetzkyanna/Desktop/sudoku/src/main/java/hu/bme/sudoku/logic/SudokuEllenorzo.java

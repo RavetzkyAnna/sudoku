@@ -1,10 +1,13 @@
 package hu.bme.sudoku;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
-
 import java.awt.Point;
 import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import hu.bme.sudoku.logic.SudokuEllenorzo;
 
 public class SudokuEllenorzoTest {
 

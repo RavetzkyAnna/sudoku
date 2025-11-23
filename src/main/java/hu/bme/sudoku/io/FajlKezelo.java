@@ -1,4 +1,4 @@
-package hu.bme.sudoku;
+package hu.bme.sudoku.io;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -1,4 +1,4 @@
-package hu.bme.sudoku;
+package hu.bme.sudoku.logic;
 
 public class SudokuTabla {
 

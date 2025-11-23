@@ -1,4 +1,4 @@
-package hu.bme.sudoku;
+package hu.bme.sudoku.logic;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

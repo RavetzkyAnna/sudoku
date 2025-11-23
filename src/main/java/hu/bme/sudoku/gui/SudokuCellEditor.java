@@ -1,4 +1,4 @@
-package hu.bme.sudoku;
+package hu.bme.sudoku.gui;
 
 import javax.swing.DefaultCellEditor;
 import javax.swing.JTextField;
