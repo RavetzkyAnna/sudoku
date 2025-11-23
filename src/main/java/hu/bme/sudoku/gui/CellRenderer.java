@@ -55,9 +55,11 @@ public class CellRenderer extends DefaultTableCellRenderer {
             }
         }
         
-        // Kijelölés ne üsse felül a hátteret
+        // Kijelölt cella kiemelése
         if (isSelected) {
-            fg = Color.BLACK;
+            c.setBackground(new Color(180, 200, 255));  // halvány kék
+            c.setForeground(Color.BLACK);
+            return c;
         }
         
         c.setBackground(bg);
