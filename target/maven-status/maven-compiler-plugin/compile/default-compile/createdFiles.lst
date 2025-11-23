@@ -1,0 +1,16 @@
+hu/bme/sudoku/io/FajlKezelo$BetoltesEredmeny.class
+hu/bme/sudoku/gui/GameWindow$4.class
+hu/bme/sudoku/gui/SudokuTableModel.class
+hu/bme/sudoku/logic/SudokuGenerator$Nehezseg.class
+hu/bme/sudoku/logic/SudokuGenerator.class
+hu/bme/sudoku/gui/GameWindow$2.class
+hu/bme/sudoku/gui/SudokuCellEditor$DigitFilter.class
+hu/bme/sudoku/gui/GameWindow$5.class
+hu/bme/sudoku/gui/GameWindow$1.class
+hu/bme/sudoku/logic/SudokuEllenorzo.class
+hu/bme/sudoku/logic/SudokuTabla.class
+hu/bme/sudoku/gui/SudokuCellEditor.class
+hu/bme/sudoku/gui/GameWindow.class
+hu/bme/sudoku/io/FajlKezelo.class
+hu/bme/sudoku/gui/GameWindow$3.class
+hu/bme/sudoku/gui/CellRenderer.class
