@@ -18,6 +18,11 @@ buildNumber.properties
 .vscode/
 *.code-workspace
 .eclipse/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
 .project
 .classpath
 .settings/
