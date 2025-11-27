@@ -7,8 +7,16 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 
+/**
+ * JTable cellaszerkesztő Sudoku számokhoz.
+ * Csak az 1-9 közötti egyjegyű számok beírása engedélyezett.
+ */
 public class SudokuCellEditor extends DefaultCellEditor {
 
+    /**
+     * A SudokuCellEditor konstruktora.
+     * Egy JTextField-et hoz létre az 1-9 számok szűrésével.
+     */
     public SudokuCellEditor() {
         super(new JTextField());
         JTextField tf = (JTextField) getComponent();
@@ -16,8 +24,23 @@ public class SudokuCellEditor extends DefaultCellEditor {
         ((AbstractDocument) tf.getDocument()).setDocumentFilter(new DigitFilter());
     }
 
+    /**
+     * DocumentFilter az 1-9 számokra korlátozva.
+     * Biztosítja, hogy csak Sudoku-kompatibilis számok írhatók be.
+     */
     private static class DigitFilter extends DocumentFilter {
 
+        /**
+         * Szöveg behelyezésének és helyettesítésének kezelése.
+         * Csak az 1-9 közötti egyjegyű számokat engedélyezi.
+         * 
+         * @param fb a FilterBypass objektum
+         * @param offset az offset az azon belül beszúrandó
+         * @param length az eltávolítandó hossz
+         * @param text az azon belül beszúrandó szöveg
+         * @param attrs az attribútumok
+         * @throws BadLocationException ha az offset érvénytelen
+         */
         @Override
         public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs)
                 throws BadLocationException {
@@ -39,6 +62,15 @@ public class SudokuCellEditor extends DefaultCellEditor {
             }
         }
 
+        /**
+         * Szöveg beszúrásának kezelése.
+         * 
+         * @param fb a FilterBypass objektum
+         * @param offset az offset az azon belül beszúrandó
+         * @param string a beszúrandó szöveg
+         * @param attr az attribútumok
+         * @throws BadLocationException ha az offset érvénytelen
+         */
         @Override
         public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr)
                 throws BadLocationException {

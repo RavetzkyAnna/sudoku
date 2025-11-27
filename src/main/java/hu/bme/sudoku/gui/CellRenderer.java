@@ -9,24 +9,58 @@ import javax.swing.JTable;
 import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 
+/**
+ * JTable cellák megjelenítésre szokásos Sudoku renderere.
+ * Kezeli a rögzített cellák, hibás cellák és kiválasztott cellák megjelenítését.
+ */
 public class CellRenderer extends DefaultTableCellRenderer {
     
     private boolean[][] fix;
     private Set<Point> hibak;
     
+    /**
+     * A CellRenderer konstruktora.
+     * 
+     * @param fixCellak a rögzített cellák mátrixa (true = rögzített)
+     */
     public CellRenderer(boolean[][] fixCellak) {
         this.fix = fixCellak;
         setHorizontalAlignment(CENTER);
     }
 
+    /**
+     * A rögzített cellák mátrixát frissíti.
+     * 
+     * @param fix az új rögzített cellák mátrixa
+     */
     public void setFixCellak(boolean[][] fix) {
         this.fix = fix;
     }
     
+    /**
+     * A hibás cellák halmazát frissíti.
+     * 
+     * @param hibak a hibás cellák pozícióinak halmaza
+     */
     public void setHibak(Set<Point> hibak) {
         this.hibak = hibak;
     }
     
+    /**
+     * Renderelje egy cellát megfelelő színek és bordák alapján.
+     * Szürke: rögzített cella
+     * Piros: hibás cella
+     * Zöld: helyes nem rögzített cella
+     * Kék: kiválasztott cella
+     * 
+     * @param table a JTable objektum
+     * @param value a cellában megjelenítendő érték
+     * @param isSelected igaz ha a cella ki van választva
+     * @param hasFocus igaz ha a cellának van fókusza
+     * @param row a sor indexe
+     * @param column az oszlop indexe
+     * @return a renderelt komponens
+     */
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value,
                                                   boolean isSelected, boolean hasFocus,
@@ -58,6 +92,7 @@ public class CellRenderer extends DefaultTableCellRenderer {
         
         c.setBackground(bg);
         c.setForeground(fg);
+        
         
         int top = (row % 3 == 0) ? 3 : 1;
         int left = (column % 3 == 0) ? 3 : 1;

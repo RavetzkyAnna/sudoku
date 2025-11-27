@@ -4,18 +4,36 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Sudoku rejtvények generálása.
+ * A backtracking algoritmus segítségével teljes megoldásokat és játékkereteket hoz létre.
+ */
 public class SudokuGenerator {
 
     private final Random rand = new Random();
     private static final int MERET = 9;
     private SudokuEllenorzo ellenorzo = new SudokuEllenorzo();
 
+    /**
+     * Egy teljes, érvényes Sudoku megoldást generál.
+     * 
+     * @return egy 9x9-es kitöltött Sudoku tábla
+     */
     public int[][] generalTeljesMegoldas() {
         int[][] tabla = new int[MERET][MERET];
         general(0, 0, tabla);
         return tabla;
     }
 
+    /**
+     * Rekurzív backtracking solver a teljes megoldás létrehozásához.
+     * Végigmegy a táblán, és minden cellához véletlenszerűen próbálja meg az 1-9 számokat.
+     * 
+     * @param sor az aktuális sor indexe
+     * @param oszlop az aktuális oszlop indexe
+     * @param tabla a Sudoku tábla
+     * @return true ha sikeres megoldás, false ha nincs lehetséges megoldás
+     */
     private boolean general(int sor, int oszlop, int[][] tabla) {
         if (sor == MERET) return true;
 
@@ -37,10 +55,23 @@ public class SudokuGenerator {
         return false;
     }
 
+    /**
+     * Sudoku nehézségi szintek.
+     * KEZDO: könnyű (50 kitöltött cella)
+     * HALADO: közepes (35 kitöltött cella)
+     * PROFI: nehéz (25 kitöltött cella)
+     */
     public enum Nehezseg {
         KEZDO, HALADO, PROFI
     }
 
+    /**
+     * Egy új játékkeretkezetet generál az adott nehézségi szinten.
+     * Egy teljes megoldást hoz létre, majd eltávolít egy bizonyos számú cellát.
+     * 
+     * @param nehezseg a játék nehézségi szintje (KEZDO, HALADO, PROFI)
+     * @return egy 9x9-es játékkeret cellákkal kiürítve az adott nehézség szerint
+     */
     public int[][] generalUjJatek(Nehezseg nehezseg) {
         int[][] tabla = generalTeljesMegoldas();
 

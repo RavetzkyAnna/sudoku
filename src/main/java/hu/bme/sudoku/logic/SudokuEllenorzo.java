@@ -4,7 +4,19 @@ import java.awt.Point;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Sudoku tábla validálása és ellenőrzése.
+ * Ellenőrzi a sorok, oszlopok és 3x3 blokkok helyességét.
+ */
 public class SudokuEllenorzo {
+
+    /**
+     * A tábla hibás pozícióit adja vissza.
+     * Hibásnak számít: üres cella (0), duplikált szám ugyanabban a sorban/oszlopban/blokkban.
+     * 
+     * @param t a Sudoku tábla
+     * @return a hibás cellák pozícióinak halmaza
+     */
     public Set<Point> hibasPoziciok(int[][] t) {
         Set<Point> hibak = new HashSet<>();
 
@@ -53,10 +65,26 @@ public class SudokuEllenorzo {
         return hibak;
     }
 
+    /**
+     * Ellenőrzi, hogy a tábla teljesen és helyesen kitöltött-e.
+     * 
+     * @param t a Sudoku tábla
+     * @return true ha hiba nélküli és nincs üres cella, false egyébként
+     */
     public boolean teljesenKesz(int[][] t) {
         return hibasPoziciok(t).isEmpty();
     }
 
+    /**
+     * Ellenőrzi, hogy egy szám behelyezhető-e az adott cellába.
+     * Szigorú Sudoku szabályok szerint: nem lehet ismétlődés sorban, oszlopban, blokkban.
+     * 
+     * @param tabla a Sudoku tábla
+     * @param sor a sor indexe (0-8)
+     * @param oszlop az oszlop indexe (0-8)
+     * @param ertek a behelyezendő érték (1-9)
+     * @return true ha behelyezhető, false ha sértene egy szabályt
+     */
     public boolean beteheto(int[][] tabla, int sor, int oszlop, int ertek) {
         for (int c = 0; c < 9; c++) {
             if (c != oszlop && tabla[sor][c] == ertek) return false;

@@ -24,6 +24,10 @@ import hu.bme.sudoku.logic.SudokuEllenorzo;
 import hu.bme.sudoku.logic.SudokuGenerator;
 import hu.bme.sudoku.logic.SudokuTabla;
 
+/**
+ * Sudoku játék grafikus felülete.
+ * A fő alkalmazás ablaka, amely a játék kezelőfelületét biztosítja.
+ */
 public class GameWindow extends JFrame {
     private CellRenderer renderer;
     private SudokuTabla tabla;
@@ -33,6 +37,10 @@ public class GameWindow extends JFrame {
     private SudokuGenerator generator = new SudokuGenerator();
     private FajlKezelo fajlkezelo = new FajlKezelo();
 
+    /**
+     * A GameWindow konstruktora.
+     * Inicializálja a 600x600 ablakot a Sudoku táblával, menüvel és megfelelő rendererekkek.
+     */
     public GameWindow() {
         setTitle("Sudoku");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,6 +66,11 @@ public class GameWindow extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * A menübar létrehozása menüelemekkel (új játék, mentés, betöltés, ellenőrzés, kilépés).
+     * 
+     * @return a kész menübar objektum
+     */
     private JMenuBar createMenu() {
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("Menü");
@@ -108,6 +121,10 @@ public class GameWindow extends JFrame {
         return menuBar;
     }
 
+    /**
+     * Új játék indítása.
+     * A felhasználó kiválaszt egy nehézségi szintet, majd egy új játékkeret jön létre.
+     */
     private void ujJatekInditas() {
         Object[] lehetosegek = { "Kezdő", "Haladó", "Profi" };
         int valasz = JOptionPane.showOptionDialog(this,
@@ -135,6 +152,10 @@ public class GameWindow extends JFrame {
         table.repaint();
     }
 
+    /**
+     * A jelenlegi játék állapotának mentése fájlba.
+     * Fájlválasztó dialógus segítségével adható meg a mentés helye.
+     */
     private void jatekMentes() {
         JFileChooser fc = new JFileChooser();
         if (fc.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
@@ -151,6 +172,10 @@ public class GameWindow extends JFrame {
         }
     }
 
+    /**
+     * Egy korábban mentett játék betöltése.
+     * Fájlválasztó dialógus segítségével adható meg a betöltendő fájl.
+     */
     private void jatekBetoltes() {
         JFileChooser fc = new JFileChooser();
         if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
@@ -174,6 +199,10 @@ public class GameWindow extends JFrame {
         }
     }
 
+    /**
+     * A jelenlegi játéktábla ellenőrzése.
+     * Megjelenik, ha van hiba, és gratulálok üzenet jöhet ha kész a játék.
+     */
     private void jatekEllenorzes() {
         int[][] t = tabla.getTabla();
         Set<Point> hibak = ellenorzo.hibasPoziciok(t);
@@ -193,6 +222,12 @@ public class GameWindow extends JFrame {
         }
     }
 
+    /**
+     * A Sudoku alkalmazás belépési pontja.
+     * Az alkalmazást SwingUtilities.invokeLater segítségével indítja az EDT szálon.
+     * 
+     * @param args parancssor argumentumok (nem használt)
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(GameWindow::new);
     }
