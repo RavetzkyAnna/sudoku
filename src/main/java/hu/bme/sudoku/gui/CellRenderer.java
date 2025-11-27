@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class CellRenderer extends DefaultTableCellRenderer {
     
     private boolean[][] fix;
-    private Set<Point> hibak; // hibás cellák
+    private Set<Point> hibak;
     
     public CellRenderer(boolean[][] fixCellak) {
         this.fix = fixCellak;
@@ -37,27 +37,21 @@ public class CellRenderer extends DefaultTableCellRenderer {
         Color bg = Color.WHITE;
         Color fg = Color.BLACK;
         
-        // FIX cellák szürkével
         if (fix != null && fix[row][column]) {
             bg = new Color(230, 230, 230);
         }
         
-        // Ha vannak hibák → jelöljük ki
         if (hibak != null && !hibak.isEmpty()) {
-            
-            // Hibás cella → piros
             if (hibak.contains(new Point(row, column))) {
                 bg = new Color(255, 200, 200);
             } 
-            // Nem hibás → zöld (ha nem fix)
             else if (!fix[row][column]) {
                 bg = new Color(200, 255, 200);
             }
         }
         
-        // Kijelölt cella kiemelése
         if (isSelected) {
-            c.setBackground(new Color(180, 200, 255));  // halvány kék
+            c.setBackground(new Color(180, 200, 255));
             c.setForeground(Color.BLACK);
             return c;
         }
@@ -65,7 +59,6 @@ public class CellRenderer extends DefaultTableCellRenderer {
         c.setBackground(bg);
         c.setForeground(fg);
         
-        // 3×3 blokk vastag rácsvonalak
         int top = (row % 3 == 0) ? 3 : 1;
         int left = (column % 3 == 0) ? 3 : 1;
         int bottom = (row == 8) ? 3 : 1;

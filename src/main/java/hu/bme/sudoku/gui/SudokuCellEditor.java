@@ -16,7 +16,6 @@ public class SudokuCellEditor extends DefaultCellEditor {
         ((AbstractDocument) tf.getDocument()).setDocumentFilter(new DigitFilter());
     }
 
-    // Csak 1 karakter hosszú és csak 1–9 lehet
     private static class DigitFilter extends DocumentFilter {
 
         @Override
@@ -30,13 +29,11 @@ public class SudokuCellEditor extends DefaultCellEditor {
 
             String uj = text.trim();
 
-            // üres → engedjük (törlés)
             if (uj.isEmpty()) {
                 super.replace(fb, offset, length, "", attrs);
                 return;
             }
 
-            // csak egy számjegy
             if (uj.length() == 1 && uj.charAt(0) >= '1' && uj.charAt(0) <= '9') {
                 fb.replace(0, fb.getDocument().getLength(), uj, attrs);
             }

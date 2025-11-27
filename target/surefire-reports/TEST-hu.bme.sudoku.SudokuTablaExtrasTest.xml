@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="HU"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk@21/21.0.9/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/ravetzkyanna/Desktop/sudoku/target/surefire/surefirebooter-20251125170330514_3.jar /Users/ravetzkyanna/Desktop/sudoku/target/surefire 2025-11-25T17-03-30_473-jvmRun1 surefire-20251125170330514_1tmp surefire_0-20251125170330514_2tmp"/>
+    <property name="sun.java.command" value="/Users/ravetzkyanna/Desktop/sudoku/target/surefire/surefirebooter-20251127123923163_3.jar /Users/ravetzkyanna/Desktop/sudoku/target/surefire 2025-11-27T12-39-23_076-jvmRun1 surefire-20251127123923163_1tmp surefire_0-20251127123923163_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/ravetzkyanna/Desktop/sudoku/target/test-classes:/Users/ravetzkyanna/Desktop/sudoku/target/classes:/Users/ravetzkyanna/.m2/repository/org/junit/jupiter/junit-jupiter/5.11.0/junit-jupiter-5.11.0.jar:/Users/ravetzkyanna/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/Users/ravetzkyanna/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/ravetzkyanna/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/Users/ravetzkyanna/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/ravetzkyanna/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:/Users/ravetzkyanna/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.11.0/junit-jupiter-engine-5.11.0.jar:/Users/ravetzkyanna/.m2/repository/org/junit/platform/junit-platform-engine/1.11.0/junit-platform-engine-1.11.0.jar:/Users/ravetzkyanna/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/ravetzkyanna/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/ravetzkyanna/Desktop/sudoku/target/surefire/surefirebooter-20251125170330514_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/ravetzkyanna/Desktop/sudoku/target/surefire/surefirebooter-20251127123923163_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="21.0.9"/>
@@ -59,6 +59,6 @@
     <property name="java.class.version" value="65.0"/>
   </properties>
   <testcase name="testTorlesAndUresekSzama" classname="hu.bme.sudoku.SudokuTablaExtrasTest" time="0.011"/>
-  <testcase name="testInvalidIndexGetSet" classname="hu.bme.sudoku.SudokuTablaExtrasTest" time="0.002"/>
-  <testcase name="testInvalidValueSet" classname="hu.bme.sudoku.SudokuTablaExtrasTest" time="0.0"/>
+  <testcase name="testInvalidIndexGetSet" classname="hu.bme.sudoku.SudokuTablaExtrasTest" time="0.001"/>
+  <testcase name="testInvalidValueSet" classname="hu.bme.sudoku.SudokuTablaExtrasTest" time="0.001"/>
 </testsuite>

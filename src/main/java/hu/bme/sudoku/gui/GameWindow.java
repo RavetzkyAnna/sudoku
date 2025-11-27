@@ -43,7 +43,6 @@ public class GameWindow extends JFrame {
         tableModel = new SudokuTableModel(tabla);
         table = new JTable(tableModel);
 
-        //Csak 1–9 bevitel engedélyezése
         table.setDefaultEditor(Object.class, new SudokuCellEditor());
 
         renderer = new CellRenderer(tableModel.getFixCellak());
@@ -61,7 +60,6 @@ public class GameWindow extends JFrame {
 
     private JMenuBar createMenu() {
         JMenuBar menuBar = new JMenuBar();
-
         JMenu fileMenu = new JMenu("Menü");
 
         JMenuItem ujJatek = new JMenuItem(new AbstractAction("Új játék") {
@@ -154,59 +152,46 @@ public class GameWindow extends JFrame {
     }
 
     private void jatekBetoltes() {
-    JFileChooser fc = new JFileChooser();
-    if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-        try {
+        JFileChooser fc = new JFileChooser();
+        if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            try {
+                BetoltesEredmeny eredm = fajlkezelo.betoltes(
+                    fc.getSelectedFile().getAbsolutePath()
+                );
 
-            BetoltesEredmeny eredm = fajlkezelo.betoltes(
-                fc.getSelectedFile().getAbsolutePath()
-            );
+                tabla = new SudokuTabla(eredm.tabla());
+                tableModel.setTabla(tabla);
+                tableModel.setFixCellak(eredm.fix());
+                renderer.setFixCellak(eredm.fix());
+                renderer.setHibak(null);
+                tableModel.fireTableDataChanged();
+                table.repaint();
 
-            tabla = new SudokuTabla(eredm.tabla());
-            tableModel.setTabla(tabla);
-
-            tableModel.setFixCellak(eredm.fix());
-            renderer.setFixCellak(eredm.fix());
-
-            renderer.setHibak(null);
-
-            tableModel.fireTableDataChanged();
-            table.repaint();
-
-            JOptionPane.showMessageDialog(this, "Betöltés kész!");
-
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "Hiba történt a betöltéskor.");
+                JOptionPane.showMessageDialog(this, "Betöltés kész!");
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Hiba történt a betöltéskor.");
+            }
         }
     }
-}
-    
 
     private void jatekEllenorzes() {
-    int[][] t = tabla.getTabla();
+        int[][] t = tabla.getTabla();
+        Set<Point> hibak = ellenorzo.hibasPoziciok(t);
+        renderer.setHibak(hibak);
+        table.repaint();
 
-    // hibák összegyűjtése
-    Set<Point> hibak = ellenorzo.hibasPoziciok(t);
-
-    // átadjuk a renderernek
-    renderer.setHibak(hibak);
-
-    // újrarajzolás
-    table.repaint();
-
-    if (hibak.isEmpty()) {
-        JOptionPane.showMessageDialog(this,
-            "Gratulálok! Kész a sudoku!",
-            "Kész",
-            JOptionPane.INFORMATION_MESSAGE);
-    } else {
-        JOptionPane.showMessageDialog(this,
-            "Hibás vagy hiányos mezők találhatók a táblán!",
-            "Hiba",
-            JOptionPane.ERROR_MESSAGE);
+        if (hibak.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                "Gratulálok! Kész a sudoku!",
+                "Kész",
+                JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this,
+                "Hibás vagy hiányos mezők találhatók a táblán!",
+                "Hiba",
+                JOptionPane.ERROR_MESSAGE);
+        }
     }
-}
-    
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(GameWindow::new);

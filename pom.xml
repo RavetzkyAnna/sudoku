@@ -79,7 +79,7 @@
             </plugins>
         </pluginManagement>
 
-        <!-- ✅ ACTIVE PLUGINS -->
+        <!--  ACTIVE PLUGINS -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
