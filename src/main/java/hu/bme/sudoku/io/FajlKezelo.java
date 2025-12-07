@@ -3,6 +3,7 @@ package hu.bme.sudoku.io;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -50,7 +51,7 @@ public class FajlKezelo {
      * 
      * @param path a fájl elérési útja
      * @return a betöltött tábla és fix cellák információja
-     * @throws IOException ha a fájl olvasása meghiúsul (pl. nem létezik)
+     * @throws IOException ha a fájl olvasása meghiúsul (pl. nem létezik vagy érvénytelen formátum)
      */
     public BetoltesEredmeny betoltes(String path) throws IOException {
     int[][] tabla = new int[9][9];
@@ -75,7 +76,12 @@ public class FajlKezelo {
             }
         }
     }
-
+    catch (Exception e) {
+        if (e instanceof IOException) {
+            throw (IOException) e;
+        }
+        throw new IOException("Hiba történt a fájl olvasásakor.", e);
+    }
     return new BetoltesEredmeny(tabla, fix);
 }
 }
