@@ -29,13 +29,13 @@ import hu.bme.sudoku.logic.SudokuTabla;
  * A fő alkalmazás ablaka, amely a játék kezelőfelületét biztosítja.
  */
 public class GameWindow extends JFrame {
-    private CellRenderer renderer;
+    private final CellRenderer renderer;
     private SudokuTabla tabla;
-    private SudokuTableModel tableModel;
-    private JTable table;
-    private SudokuEllenorzo ellenorzo = new SudokuEllenorzo();
-    private SudokuGenerator generator = new SudokuGenerator();
-    private FajlKezelo fajlkezelo = new FajlKezelo();
+    private final SudokuTableModel tableModel;
+    private final JTable table;
+    private final SudokuEllenorzo ellenorzo = new SudokuEllenorzo();
+    private final SudokuGenerator generator = new SudokuGenerator();
+    private final FajlKezelo fajlkezelo = new FajlKezelo();
 
     /**
      * A GameWindow konstruktora.
