@@ -12,7 +12,7 @@ public class SudokuGenerator {
 
     private final Random rand = new Random();
     private static final int MERET = 9;
-    private SudokuEllenorzo ellenorzo = new SudokuEllenorzo();
+    private final SudokuEllenorzo ellenorzo = new SudokuEllenorzo();
 
     /**
      * Egy teljes, érvényes Sudoku megoldást generál.

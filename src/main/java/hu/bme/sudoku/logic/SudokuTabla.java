@@ -7,7 +7,7 @@ package hu.bme.sudoku.logic;
 public class SudokuTabla {
 
     public static final int MERET = 9;
-    private int[][] tabla;
+    private final int[][] tabla;
 
     /**
      * Üres Sudoku tábla inicializálása.
